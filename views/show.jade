@@ -1,5 +1,19 @@
 extends layout
 
 block content
-	div.blog_main
-		!{blog_content}
+	div.color-line
+		i.one
+		i.two
+		i.three
+	div.container-fluid
+		div.row-fluid
+			div.span3.bs-docs-sidebar
+				h1= '导航'
+				ul.nav.nav-list.bs-docs-sidenav(data-spy='affix', data-offset-top='0')
+				a.nav-toggle.J_Toggle(href='javascript:void(0);')
+			div.bs-docs-sidebar-mini
+				a.nav-toggle.J_Toggle(href='javascript:void(0);')
+			div.span9.bs-docs-content
+				h1= title
+				hr.title-hr
+				!{blog_content}

@@ -2,6 +2,8 @@
 function($) {
 
 	$(function() {
+		$('pre, code').addClass('prettyprint');
+
 		var h2_list = $('h2');
 		var nav_list = $('.bs-docs-sidenav');
 		for(var i = 0, len = h2_list.length; i < len; i++){

@@ -46,7 +46,7 @@ app.get('/:title', function(req, res, next) {
         req.params.title, '/',
         req.params.title, '.md'
     ].join('');
-    
+
     var filePath = path.normalize('./' + urlPath);
 
     fs.exists(filePath, function(exists){
@@ -56,7 +56,8 @@ app.get('/:title', function(req, res, next) {
         // res.render(filePath, {layout: false});
         res.render('show', {
             title: req.params.title,
-            blog_content: html_content
+            blog_content: html_content,
+            pretty: true
         });
       }
       else{

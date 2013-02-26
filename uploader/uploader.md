@@ -136,19 +136,17 @@ gallery的包配置是必不可少：
 
 ### 1.使用js配置初始化组件
 
-{% highlight javascript %}
-KISSY.use('gallery/form/1.3/uploader/imageUploader', function (S, ImageUploader) {
+    KISSY.use('gallery/form/1.3/uploader/imageUploader', function (S, ImageUploader) {
 
-    new ImageUploader('#J_JsUploaderBtn','#J_JsUploaderQueue',{
-        // 文件域
-        name:"Filedata",
-        //处理上传的服务器端脚本路径
-        action:"upload.php",
-        //用于放服务器端返回的url的隐藏域
-        urlsInputName:"jsImageUrls"
-    }).render();
-})
-{% endhighlight%}
+        new ImageUploader('#J_JsUploaderBtn','#J_JsUploaderQueue',{
+            // 文件域
+            name:"Filedata",
+            //处理上传的服务器端脚本路径
+            action:"upload.php",
+            //用于放服务器端返回的url的隐藏域
+            urlsInputName:"jsImageUrls"
+        }).render();
+    })
 
 #### 配置参数说明
 
@@ -262,27 +260,23 @@ doc
 
 配置下gallery包路径（为了利用淘宝cdn，可以快速引用butterfly库，所以将代码托管在kissy gallery下）。
 
-{% highlight javascript %}
-var S = KISSY,
-    path = "http://a.tbcdn.cn/s/kissy/";
-KISSY.config({
-    packages:[
-        {
-            name:"gallery",
-            path:path,
-            charset:"utf-8"
-        }
-    ]
-});
-{% endhighlight %}
+    var S = KISSY,
+        path = "http://a.tbcdn.cn/s/kissy/";
+    KISSY.config({
+        packages:[
+            {
+                name:"gallery",
+                path:path,
+                charset:"utf-8"
+            }
+        ]
+    });
 
 初始化ImageUploader：
 
-{% highlight javascript %}
-KISSY.use('gallery/form/1.3/uploader/imageUploader', function (S, ImageUploader) {
-    new ImageUploader('#J_UploaderBtn').render();
-})
-{% endhighlight %}
+    KISSY.use('gallery/form/1.3/uploader/imageUploader', function (S, ImageUploader) {
+        new ImageUploader('#J_UploaderBtn').render();
+    })
 
 <div class="alert alert-info">
     当实例化ImageUploader时，组件会自动加载主题js和css文件，比如没用
