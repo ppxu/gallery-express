@@ -40,13 +40,13 @@ app.engine('md', function(path, options, fn){
 
 app.get('/', routes.index);
 
-app.get('/docs/:title', function(req, res, next) {
+app.get('/:title', function(req, res, next) {
     var urlPath = [
-        app.get('views'),
-        '/docs/',
+        __dirname, '/',
+        req.params.title, '/',
         req.params.title, '.md'
     ].join('');
-
+    
     var filePath = path.normalize('./' + urlPath);
 
     fs.exists(filePath, function(exists){
@@ -55,7 +55,7 @@ app.get('/docs/:title', function(req, res, next) {
         var html_content = markdown.parse(content);
         // res.render(filePath, {layout: false});
         res.render('show', {
-            title: "hahahahaha",
+            title: req.params.title,
             blog_content: html_content
         });
       }
