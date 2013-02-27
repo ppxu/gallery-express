@@ -2,7 +2,7 @@
 function($) {
 
 	$(function() {
-		$('pre, code').addClass('prettyprint');
+		$('pre').addClass('prettyprint');
 		prettyPrint();
 
 		var h2_list = $('h2');
@@ -42,6 +42,7 @@ function($) {
 				'margin-left': '0',
 				'opacity': '0'
 			}, 575, function() {
+				$('.bs-docs-sidebar .nav-toggle').hide();
 				$('.bs-docs-sidebar-mini').animate({
 					'width': '26px'
 				}, 200);
@@ -52,7 +53,7 @@ function($) {
 			$('.bs-docs-sidebar-mini').animate({
 				'width': '0'
 			}, 200, function(){
-				// $('.bs-docs-sidebar .bs-docs-sidenav').show();
+				$('.bs-docs-sidebar .nav-toggle').show();
 				$('.bs-docs-sidebar .bs-docs-sidenav').animate({
 					'width': nav_width,
 					'opacity': '1'

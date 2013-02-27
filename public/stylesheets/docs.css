@@ -83,7 +83,7 @@ body{
   width: 16px;
   height: 85px;
   margin-left: 264px;
-  background: url('../img/toggle.png');
+  background: url('../images/toggle.png');
   z-index: 99;
 }
 
@@ -107,7 +107,7 @@ body{
   left: 10px;
   width: 16px;
   height: 85px;
-  background: url('../img/toggle.png') no-repeat -16px 0;
+  background: url('../images/toggle.png') no-repeat -16px 0;
   z-index: 99;
 }
 
@@ -130,6 +130,9 @@ body{
   font-size: 48px;
   font-weight: 500;
   color: #333;
+}
+.bs-docs-content h1:first-letter {
+  text-transform: uppercase;
 }
 .bs-docs-content .title-hr{
   margin-top: 30px;
@@ -163,6 +166,10 @@ body{
   margin: 10px 0 20px;
   border-bottom: none;
   border-top: 1px solid #ccc;
+}
+.bs-docs-content pre.prettyprint{
+  padding: 8px 10px;
+  border: 1px solid #ccc;
 }
 
 /* Responsive
