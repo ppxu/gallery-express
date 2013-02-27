@@ -3,6 +3,7 @@ function($) {
 
 	$(function() {
 		$('pre, code').addClass('prettyprint');
+		prettyPrint();
 
 		var h2_list = $('h2');
 		var nav_list = $('.bs-docs-sidenav');

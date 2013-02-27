@@ -41,10 +41,11 @@ app.engine('md', function(path, options, fn){
 app.get('/', routes.index);
 
 app.get('/:title', function(req, res, next) {
+    var title = req.params.title;
     var urlPath = [
-        __dirname, '/',
-        req.params.title, '/',
-        req.params.title, '.md'
+        __dirname, '/gallery/',
+        title, '/docs/',
+        title, '.md'
     ].join('');
 
     var filePath = path.normalize('./' + urlPath);
@@ -55,7 +56,7 @@ app.get('/:title', function(req, res, next) {
         var html_content = markdown.parse(content);
         // res.render(filePath, {layout: false});
         res.render('show', {
-            title: req.params.title,
+            title: title,
             blog_content: html_content,
             pretty: true
         });
