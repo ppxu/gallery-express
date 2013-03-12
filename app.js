@@ -29,21 +29,23 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
-app.engine('md', function(path, options, fn){
+/*app.engine('md', function(path, options, fn){
   fs.readFile(path, 'utf8', function(err, str){
     if (err) return fn(err);
     str = markdown.parse(str).toString();
     fn(null, str);
   });
 });
-
+*/
 app.get('/', routes.index);
 
-app.get('/:title', function(req, res, next) {
+app.get('/:title/:version', function(req, res, next) {
+    var version = req.params.version;
     var title = req.params.title;
     var urlPath = [
         __dirname, '/gallery/',
-        title, '/docs/',
+        title, '/',
+        version, '/docs/',
         title, '.md'
     ].join('');
 
@@ -53,7 +55,6 @@ app.get('/:title', function(req, res, next) {
       if(exists){
         var content = fs.readFileSync(filePath, 'utf-8');
         var html_content = markdown.parse(content);
-        // res.render(filePath, {layout: false});
         res.render('show', {
             title: title,
             blog_content: html_content,
