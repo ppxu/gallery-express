@@ -8,7 +8,7 @@ var express = require('express')
   , http = require('http')
   , path = require('path')
   , fs = require('fs')
-  , markdown = require('markdown-js');
+  , marked = require('marked');
 
 var app = express();
 
@@ -54,7 +54,8 @@ app.get('/:title/:version', function(req, res, next) {
     fs.exists(filePath, function(exists){
       if(exists){
         var content = fs.readFileSync(filePath, 'utf-8');
-        var html_content = markdown.parse(content);
+        var tokens = marked.lexer(content);
+        var html_content = marked.parser(tokens);
         res.render('show', {
             title: title,
             blog_content: html_content,
