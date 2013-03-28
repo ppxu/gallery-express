@@ -1,13 +1,9 @@
-/**
- * Module dependencies.
- */
 
 var express = require('express'),
     routes = require('./routes'),
+    gallery = require('./routes/gallery'),
     http = require('http'),
-    path = require('path'),
-    fs = require('fs'),
-    marked = require('marked');
+    path = require('path');
 
 var app = express();
 
@@ -32,32 +28,7 @@ app.configure('development', function() {
 
 app.get('/', routes.index);
 
-app.get('/:title/:version', function(req, res, next) {
-    var version = req.params.version;
-    var title = req.params.title;
-    var urlPath = [
-    __dirname, '/gallery/',
-    title, '/',
-    version, '/doc/',
-    title, '.md'].join('');
-
-    var filePath = path.normalize('./' + urlPath);
-
-    fs.exists(filePath, function(exists) {
-        if (exists) {
-            var content = fs.readFileSync(filePath, 'utf-8');
-            var tokens = marked.lexer(content);
-            var html_content = marked.parser(tokens);
-            res.render('show', {
-                title: title,
-                blog_content: html_content,
-                pretty: true
-            });
-        } else {
-            next();
-        }
-    });
-});
+app.get('/:title/:version', gallery.docs);
 
 app.get('*', function(req, res) {
     res.render('404', {
