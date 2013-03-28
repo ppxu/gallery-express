@@ -15,7 +15,7 @@ exports.docs = function(req, res, next) {
 			version, '/doc/',
 			title, '.md'].join('');
 
-	var filePath = path.normalize('/' + urlPath);
+	var filePath = path.normalize(urlPath);
 
 	fs.exists(filePath, function(exists) {
 		if (exists) {
