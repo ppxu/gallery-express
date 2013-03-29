@@ -3,6 +3,7 @@ var express = require('express'),
     routes = require('./routes'),
     gallery = require('./routes/gallery'),
     http = require('http'),
+    receive = require('./routes/receive'),
     path = require('path');
 
 var app = express();
@@ -27,6 +28,12 @@ app.configure('development', function() {
 });
 
 app.get('/', routes.index);
+
+app.post('/receive/write', receive.write);
+
+app.get('/receive/commits', receive.commits);
+
+app.get('/receive/log', receive.log);
 
 app.get('/:title/:version', gallery.docs);
 
