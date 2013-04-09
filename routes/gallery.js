@@ -1,25 +1,17 @@
-/*
- * GET gallery docs.
- */
+var path = require('path'),
+	fs = require('fs'),
+	marked = require('marked');
 
 exports.docs = function(req, res, next) {
-	var path = require('path'),
-		fs = require('fs'),
-		marked = require('marked'),
-		version = req.params.version,
+	var version = req.params.version,
 		title = req.params.title,
-		baseUrl = process.cwd(),
-		urlPath = [
-			baseUrl, '/gallery/',
-			title, '/',
-			version, '/doc/',
-			title, '.md'].join('');
+		baseUrl = process.cwd();
 
-	var filePath = path.normalize(urlPath);
+	var urlPath = path.resolve(baseUrl, '../' + title, './' + version, './doc', './' + title + '.md');
 
-	fs.exists(filePath, function(exists) {
+	fs.exists(urlPath, function(exists) {
 		if (exists) {
-			var content = fs.readFileSync(filePath, 'utf-8');
+			var content = fs.readFileSync(urlPath, 'utf-8');
 			var tokens = marked.lexer(content);
 			var htmlContent = marked.parser(tokens);
 			res.render('show', {
