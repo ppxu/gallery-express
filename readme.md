@@ -4,12 +4,14 @@
 
 	./
 	|
-	|----gallery
+	|----offline
 	     |
-	     |----uploader
+	     |----gallery
 	          |
-	          |----1.0
+	          |----offline
 	               |
-	               |----doc
+	               |----1.0
 	                    |
-	                    |----uploader.md
+	                    |----guide
+	                         |
+	                         |----index.md
