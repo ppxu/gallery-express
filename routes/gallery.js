@@ -6,12 +6,14 @@ var path = require('path'),
 	marked = require('marked');
 
 exports.docs = function(req, res, next) {
-	var title1 = req.params.title1,
-		version = req.params.version,
-		title2 = req.params.title2,
+	var gallery = req.params[0],
+		index = gallery.lastIndexOf('/'),
+		title = index === -1 ? gallery : gallery.substring(index + 1),
+		version = req.params[1],
+		filename = req.params[2],
 		baseUrl = process.cwd();
 
-	var urlPath = path.resolve(baseUrl, '../' + title1, './gallery/' + title2, './' + version, './guide/index.md');
+	var urlPath = path.resolve(baseUrl, '../' + gallery, './' + version, './guide/' + filename + '.md');
 
 	fs.exists(urlPath, function(exists) {
 		if (exists) {
@@ -22,7 +24,7 @@ exports.docs = function(req, res, next) {
 					var tokens = marked.lexer(data);
 					var htmlContent = marked.parser(tokens);
 					res.render('show', {
-						title: title2,
+						title: title,
 						blogContent: htmlContent,
 						pretty: true
 					});

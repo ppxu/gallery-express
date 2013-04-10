@@ -115,6 +115,31 @@ body {
 .bs-docs-content {
   margin-top: 55px;
   color: #555;
+  position: relative;
+  .link {
+    position: absolute;
+    right: 0;
+    top: -45px;
+    width: 265px;
+    height: 40px;
+    a {
+      display: inline-block;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+    }
+    .source {
+      width: 117px;
+      background-color: #f50;
+    }
+    .home {
+      width: 148px;
+      background-color: #008f68;
+    }
+  }
   h1 {
     font-size: 48px;
     font-weight: 500;
@@ -209,6 +234,9 @@ body {
     padding-right: 20px;
     .bs-docs-sidebar{
       display: none;
+    }
+    .bs-docs-content{
+      width: 95%;
     }
   }
 }
