@@ -35,7 +35,7 @@ app.get('/receive/commits', receive.commits);
 
 app.get('/receive/log', receive.log);
 
-app.get(/^((?:\/[^\/]+)+)\/([^\/]+)\/guide\/([^\/]+)\.html$/, gallery.docs);
+app.get(/^((?:\/[^\/]+)+)\/([^\/]+)\/guide(?:\/(?:([^\/\.]+)(?:\.html)?)?)?$/, gallery.docs);
 
 app.get('*', function(req, res) {
     res.render('404', {

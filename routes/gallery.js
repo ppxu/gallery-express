@@ -10,7 +10,7 @@ exports.docs = function(req, res, next) {
 		index = gallery.lastIndexOf('/'),
 		title = index === -1 ? gallery : gallery.substring(index + 1),
 		version = req.params[1],
-		filename = req.params[2],
+		filename = req.params[2] ? req.params[2] : 'index',
 		baseUrl = process.cwd();
 
 	var urlPath = path.resolve(baseUrl, '../' + gallery, './' + version, './guide/' + filename + '.md');
