@@ -1,8 +1,8 @@
 
 var express = require('express'),
+    http = require('http'),
     routes = require('./routes'),
     gallery = require('./routes/gallery'),
-    http = require('http'),
     receive = require('./routes/receive'),
     path = require('path');
 
@@ -35,7 +35,7 @@ app.get('/receive/commits', receive.commits);
 
 app.get('/receive/log', receive.log);
 
-app.get('/:title1/gallery/:title2/:version/guide/index.html', gallery.docs);
+app.get(/^((?:\/[^\/]+)+)\/([^\/]+)\/guide\/([^\/]+)\.html$/, gallery.docs);
 
 app.get('*', function(req, res) {
     res.render('404', {

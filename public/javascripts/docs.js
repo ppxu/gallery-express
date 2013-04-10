@@ -1,18 +1,22 @@
-!
-function($) {
+! function($) {
 
 	$(function() {
 		$('pre').addClass('prettyprint');
 		prettyPrint();
 
+		var path = window.location.pathname,
+			filepath = path.split('guide')[0],
+			index = filepath.indexOf('/', 1),
+			reponame = filepath.substring(0, index),
+			foldername = filepath.substring(index);
+		$('.source').attr('href', 'https://github.com/kissygalleryteam' + reponame + '/tree/master' + foldername);
+
 		var h2_list = $('h2');
 		var nav_list = $('.bs-docs-sidenav');
-		for(var i = 0, len = h2_list.length; i < len; i++){
+		for (var i = 0, len = h2_list.length; i < len; i++) {
 			var cur_list = h2_list[i];
 			var list_id = cur_list.id ? cur_list.id : cur_list.id = 'area' + i;
-			nav_list.append('<li><a href = "#' +
-				list_id + '">' +
-				cur_list.innerHTML + '</a></li>');
+			nav_list.append('<li><a href = "#' + list_id + '">' + cur_list.innerHTML + '</a></li>');
 		}
 
 		var nav_width = $('.bs-docs-sidebar .bs-docs-sidenav').width();
@@ -52,7 +56,7 @@ function($) {
 		$('.bs-docs-sidebar-mini .J_Toggle').click(function() {
 			$('.bs-docs-sidebar-mini').animate({
 				'width': '0'
-			}, 200, function(){
+			}, 200, function() {
 				$('.bs-docs-sidebar .nav-toggle').show();
 				$('.bs-docs-sidebar .bs-docs-sidenav').animate({
 					'width': nav_width,
