@@ -1,7 +1,10 @@
 each item in components
+    - var hide = item.cover? "s-none" : "";
     li.component-card
         .bd.animated
-            a.component-link(href="/#{item.name}/#{item.version}"
+            a(
+                class="component-link #{hide}"
+                href="/#{item.name}/#{item.version}"
                 title="#{item.desc}"
                 target="_blank")
                 span.l-block.info
