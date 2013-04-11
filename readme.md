@@ -39,8 +39,20 @@ offline           // 组件目录名, 小写, 多字符用 – 分隔
 * 组件的教程放在<code>guide</code>目录下，必须是<code>md</code>文件，不能是静态html页面！
 * 可以在package.json中指定打包发布模块
 * 打包后的文件会放在<code>build</code>目录中，发布到cdn上的只是build目录下的文件
-* module.js为组件combo配置，日后工具会自动生成
+* **.deps.js为组件combo配置，日后工具会自动生成
 * README.md必须存在，简单介绍下组件信息！
+
+### package.json内容
+
+```javascript
+{
+    "name": "uploader",
+    "version":"1.4",
+    "author":"明河",
+    "cover":"http://img02.taobaocdn.com/tps/i2/T1C1X_Xs8gXXcd0fwt-322-176.png",
+    "desc":"异步文件上传组件"
+}
+```
 
 ## 组件打包临时方案
 
