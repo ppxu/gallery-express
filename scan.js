@@ -28,7 +28,7 @@ var scan = function (path, cb) {
 
             if (--count == 0) {
                 result.date = Date();
-                fs.writeFile('./test.json', JSON.stringify(result), cb);
+                fs.writeFile('./component-info.json', JSON.stringify(result), cb);
             }
         });
     });
