@@ -29,6 +29,8 @@ app.configure('development', function() {
 
 app.get('/', index.index);
 
+app.get('/guide', gallery.guide);
+
 app.get('/:tag', index.tag);
 
 

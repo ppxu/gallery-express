@@ -4,12 +4,16 @@
 		$('pre').addClass('prettyprint');
 		prettyPrint();
 
-		var path = window.location.pathname,
-			filepath = path.split('guide')[0],
-			index = filepath.indexOf('/', 1),
-			reponame = filepath.substring(0, index),
-			foldername = filepath.substring(index);
-		$('.source').attr('href', 'https://github.com/kissygalleryteam' + reponame + '/tree/master' + foldername);
+		var path = window.location.pathname;
+		if (path === '/guide') {
+			$('.source').attr('href', 'https://github.com/kissygalleryteam/gallery-express');
+		} else {
+			var filepath = path.split('guide')[0],
+				index = filepath.indexOf('/', 1),
+				reponame = filepath.substring(0, index),
+				foldername = filepath.substring(index);
+			$('.source').attr('href', 'https://github.com/kissygalleryteam' + reponame + '/tree/master' + foldername);
+		}
 
 		var h2_list = $('h2');
 		var nav_list = $('.bs-docs-sidenav');
