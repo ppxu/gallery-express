@@ -1,7 +1,7 @@
 
 var express = require('express'),
     http = require('http'),
-    routes = require('./routes'),
+    index = require('./routes/index'),
     gallery = require('./routes/gallery'),
     receive = require('./routes/receive'),
     path = require('path');
@@ -27,7 +27,10 @@ app.configure('development', function() {
     app.use(express.errorHandler());
 });
 
-app.get('/', routes.index);
+app.get('/', index.index);
+
+app.get('/:tag', index.tag);
+
 
 app.post('/receive/write', receive.write);
 

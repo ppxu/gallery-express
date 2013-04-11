@@ -1,0 +1,10 @@
+each data, name in components
+    li.component-card
+        .bd.animated
+            a.component-link(href="/#{name}/#{data.version}"
+                title="#{data.describe}"
+                target="_blank")
+                span.l-block.info
+                    em.name #{name}
+                span.l-block.author #{data.author}
+                span.l-block.describe #{data.desToShow}
