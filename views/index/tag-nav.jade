@@ -1,0 +1,12 @@
+div.tag-nav
+    div.hd
+        input(type='text'
+             placeholder='组件查找').search-input#J_SearchInput
+
+        button#J_SearchBtn.animated Search
+
+    div.bd
+        ul.tag-list
+            each item, i in tags
+                li.tag-item
+                    a.tag-link(href='/index/tag/#{i}') #{i}
