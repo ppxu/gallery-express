@@ -9,6 +9,8 @@
     "express": "3.1.0",
     "jade": "*",
     "less-middleware": "*",
-    "marked": "*"
+    "marked": "*",
+    "mongodb": "~1.2.14",
+    "dateformat": "~1.0.6-1.2.3"
   }
 }
