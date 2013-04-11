@@ -170,7 +170,7 @@ KISSY.use('gallery/uploader/1.4/plugins/imageZoom/imageZoom', function(S, ImageZ
     <property name="compiler" location="${tool.dir}/closure-compiler/compiler.jar"/>
     <property name="yuicompressor" location="${tool.dir}/yuicompressor/yuicompressor.jar"/>
     <property name="module.compiler" value="${tool.dir}/module-compiler/module-compiler.jar"/>
-    <property name="build.dir" location="./build/offline/${version}"/>
+    <property name="build.dir" location="./build/"/>
     <property name="src.dir" location="."/>
     <target name="dircheck">
         <condition property="build.dir.exists">
@@ -273,7 +273,7 @@ KISSY.use('gallery/uploader/1.4/plugins/imageZoom/imageZoom', function(S, ImageZ
         </ac:for>
     </target>
 
-    <target name="build" depends="clean-build,mkdir,combo,minify-css,minify,native2ascii">
+    <target name="build" depends="clean-build,combo,minify-css,minify,native2ascii">
     </target>
 </project>
 ```
