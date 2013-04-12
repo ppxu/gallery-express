@@ -6,7 +6,7 @@
  * To change this template use File | Settings | File Templates.
  */
 var fs = require('fs');
-var TIME =  5000;
+var TIME =  24 * 60 * 60 * 1000;
 var FILE_NAME = 'gruntfile.json';
 
 var scan = function (path, cb) {
