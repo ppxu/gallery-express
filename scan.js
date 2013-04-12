@@ -7,7 +7,7 @@
  */
 var fs = require('fs');
 var TIME =  5000;
-var FILE_NAME = 'package.json';
+var FILE_NAME = 'gruntfile.json';
 
 var scan = function (path, cb) {
     var result = {
