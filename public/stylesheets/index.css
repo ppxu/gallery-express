@@ -446,5 +446,7 @@ ul {
   .component-card:hover .component-link {
     color: #3d9fd2;
     background: rgba(0, 0, 0, 0.8); }
+.component-card:hover .s-none {
+    display: none; }
   .component-card:hover .comment-num {
     background: url("/images/sprites.png") -3px -242px no-repeat; }

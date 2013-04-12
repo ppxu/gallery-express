@@ -6,7 +6,7 @@ var config = require('../config'),
     fs = require('fs');
 
 exports.index = function (req, res) {
-    fs.readFile('./gallery/component-info.json', {
+    fs.readFile('./component-info.json', {
         encoding: 'utf8'
     }, function (err, data) {
         if (err) {

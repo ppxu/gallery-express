@@ -6,6 +6,8 @@ var express = require('express'),
     receive = require('./routes/receive'),
     path = require('path');
 
+require('./scan').init('../');
+
 var app = express();
 
 app.configure(function() {
@@ -52,3 +54,4 @@ app.get('*', function(req, res) {
 http.createServer(app).listen(app.get('port'), function() {
     console.log("Express server listening on port " + app.get('port'));
 });
+
