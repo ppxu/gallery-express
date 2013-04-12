@@ -5,6 +5,22 @@ var path = require('path'),
 	fs = require('fs'),
 	marked = require('marked');
 
+marked.setOptions({
+  gfm: true,
+  tables: true,
+  breaks: false,
+  pedantic: false,
+  sanitize: true,
+  smartLists: true,
+  langPrefix: 'language-',
+  highlight: function(code, lang) {
+    if (lang === 'js') {
+      return highlighter.javascript(code);
+    }
+    return code;
+  }
+});
+
 exports.guide = function(req, res, next) {
 	var baseUrl = process.cwd(),
 		urlPath = path.resolve(baseUrl, './readme.md');

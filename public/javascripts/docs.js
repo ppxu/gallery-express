@@ -4,6 +4,8 @@
 		$('pre').addClass('prettyprint');
 		prettyPrint();
 
+		$('.bs-docs-content').find('table').addClass('table table-striped table-bordered');
+
 		var path = window.location.pathname;
 		if (path === '/guide') {
 			$('.source').attr('href', 'https://github.com/kissygalleryteam/gallery-express');
