@@ -53,7 +53,7 @@ body {
     li {
       height: 45px;
       line-height: 45px;
-      border-bottom: 1px solid #1F8FC4;
+      border-bottom: 1px solid rgb(59, 186, 247);
       &:last-child {
         border: none;
       }
@@ -116,11 +116,10 @@ body {
 .bs-docs-content {
   margin-top: 55px;
   color: #555;
-  position: relative;
   .link {
-    position: absolute;
-    right: 0;
-    top: -45px;
+    position: fixed;
+    right: 70px;
+    top: 10px;
     width: 265px;
     height: 40px;
     a {
@@ -189,6 +188,12 @@ body {
   pre.prettyprint{
     padding: 8px 10px;
     border: 1px solid #ccc;
+  }
+  table {
+    width: auto;
+    th, td {
+      padding: 6px 13px;
+    }
   }
 }
 /* Responsive

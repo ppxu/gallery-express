@@ -4,6 +4,8 @@
 		$('pre').addClass('prettyprint');
 		prettyPrint();
 
+		$('.bs-docs-content').find('table').addClass('table table-striped table-bordered');
+
 		var path = window.location.pathname;
 		if (path === '/guide') {
 			$('.source').attr('href', 'https://github.com/kissygalleryteam/gallery-express');
@@ -19,8 +21,9 @@
 		var nav_list = $('.bs-docs-sidenav');
 		for (var i = 0, len = h2_list.length; i < len; i++) {
 			var cur_list = h2_list[i];
-			var list_id = cur_list.id ? cur_list.id : cur_list.id = 'area' + i;
-			nav_list.append('<li><a href = "#' + list_id + '">' + cur_list.innerHTML + '</a></li>');
+			list_title = cur_list.innerHTML;
+			var list_id = cur_list.id ? cur_list.id : cur_list.id = list_title.replace(/&amp;/g, 'and');
+			nav_list.append('<li><a href = "#' + list_id + '">' + list_title + '</a></li>');
 		}
 
 		var nav_width = $('.bs-docs-sidebar .bs-docs-sidenav').width();
