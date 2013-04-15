@@ -276,8 +276,3 @@ KISSY.use('gallery/uploader/1.4/plugins/imageZoom/imageZoom', function(S, ImageZ
     </target>
 </project>
 ```
-
-
-
-  
-

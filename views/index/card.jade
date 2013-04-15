@@ -1,0 +1,20 @@
+each item in components
+    - var hide = item.cover? "s-none" : "";
+    li.component-card
+        .bd.animated
+            a(
+                class="component-link #{hide}"
+                href="/#{item.name}/#{item.version}"
+                title="#{item.desc}"
+                target="_blank")
+                span.l-block.info
+                    em.name #{item.name}
+                span.l-block.author #{item.author.name}
+                span.l-block.describe #{item.descToShow}
+
+            -if (item.cover)
+                a.component-img-link(href="/#{item.name}/#{item.version}"
+                    title="#{item.desc}")
+                    img.component-img(src="#{item.cover}"
+                        width="180"
+                        height="180")

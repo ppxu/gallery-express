@@ -2,9 +2,25 @@
  * GET home page.
  */
 
-exports.index = function(req, res) {
-	res.render('index', {
-		title: 'Gallery',
-		pretty: true
-	});
+var config = require('../config'),
+    fs = require('fs');
+
+exports.index = function (req, res) {
+    fs.readFile('./component-info.json', {
+        encoding: 'utf8'
+    }, function (err, data) {
+        if (err) {
+            console.log(err);
+        } else {
+            var data = JSON.parse(data);
+            data.pretty = true;
+            res.render('index', data);
+        }
+    });
+
+
 };
+
+exports.tag = function (req, res) {
+
+}

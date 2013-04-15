@@ -1,10 +1,12 @@
 
 var express = require('express'),
     http = require('http'),
-    routes = require('./routes'),
+    index = require('./routes/index'),
     gallery = require('./routes/gallery'),
     receive = require('./routes/receive'),
     path = require('path');
+
+require('./scan').init('../');
 
 var app = express();
 
@@ -27,7 +29,12 @@ app.configure('development', function() {
     app.use(express.errorHandler());
 });
 
-app.get('/', routes.index);
+app.get('/', index.index);
+
+app.get('/guide', gallery.guide);
+
+app.get('/:tag', index.tag);
+
 
 app.post('/receive/write', receive.write);
 
@@ -47,3 +54,4 @@ app.get('*', function(req, res) {
 http.createServer(app).listen(app.get('port'), function() {
     console.log("Express server listening on port " + app.get('port'));
 });
+
